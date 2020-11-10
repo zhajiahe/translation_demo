@@ -1,0 +1,174 @@
+nohup: ignoring input
+Building prefix dict from the default dictionary ...
+Loading model from cache /tmp/jieba.cache
+Dumping model to file cache /tmp/jieba.cache
+Dump cache file failed.
+Traceback (most recent call last):
+  File "/data4/hazhang/anaconda3/lib/python3.7/site-packages/jieba/__init__.py", line 154, in initialize
+    _replace_file(fpath, cache_file)
+PermissionError: [Errno 1] Operation not permitted: '/tmp/tmptl__9x78' -> '/tmp/jieba.cache'
+Loading model cost 0.988 seconds.
+Prefix dict has been built successfully.
+Loading vocabulary from ../data-bin/dict.zh.txt ...
+Read 1791640590 words (45276 unique) from vocabulary file.
+Loading codes from ../data-bin/codes.zh ...
+Read 30000 codes from the codes file.
+Loading vocabulary from ../data-bin/dict.en.txt ...
+Read 1791640590 words (45276 unique) from vocabulary file.
+Loading codes from ../data-bin/codes.en ...
+Read 30000 codes from the codes file.
+2020-11-10 15:06:09 | INFO | fairseq_cli.interactive | Namespace(all_gather_list_size=16384, beam=8, bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, buffer_size=1, checkpoint_suffix='', constraints=None, cpu=False, criterion='cross_entropy', data='../data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='c10d', decoding_format=None, device_id=0, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', diverse_beam_groups=-1, diverse_beam_strength=0.5, diversity_rate=-1.0, empty_cache_freq=0, eval_bleu=False, eval_bleu_args=None, eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe=None, eval_tokenized_bleu=False, fast_stat_sync=False, find_unused_parameters=False, fix_batches_to_gpus=False, force_anneal=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, gen_subset='test', input='-', iter_decode_eos_penalty=0.0, iter_decode_force_max_iter=False, iter_decode_max_iter=10, iter_decode_with_beam=1, iter_decode_with_external_reranker=False, left_pad_source='True', left_pad_target='False', lenpen=1, load_alignments=False, localsgd_frequency=3, log_format=None, log_interval=100, lr_scheduler='fixed', lr_shrink=0.1, match_source_len=False, max_len_a=0, max_len_b=200, max_sentences=1, max_source_positions=1024, max_target_positions=1024, max_tokens=None, memory_efficient_bf16=False, memory_efficient_fp16=False, min_len=1, min_loss_scale=0.0001, model_overrides='{}', model_parallel_size=1, nbest=1, no_beamable_mm=False, no_early_stop=False, no_progress_bar=False, no_repeat_ngram_size=0, no_seed_provided=True, nprocs_per_node=1, num_batch_buckets=0, num_shards=1, num_workers=1, optimizer=None, path='../models/checkpoint_zh2en_CS.pt', prefix_size=0, print_alignment=False, print_step=False, profile=False, quantization_config_path=None, quiet=False, remove_bpe='@@ ', replace_unk=None, required_batch_size_multiple=8, results_path=None, retain_dropout=False, retain_dropout_modules=None, retain_iter_history=False, sacrebleu=False, sampling=False, sampling_topk=-1, sampling_topp=-1.0, score_reference=False, scoring='bleu', seed=1, shard_id=0, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='zh', target_lang='en', task='translation', temperature=1.0, tensorboard_logdir='', threshold_loss_scale=None, tokenizer=None, tpu=False, truncate_source=False, unkpen=0, unnormalized=False, upsample_primary=1, user_dir=None, warmup_updates=0)
+2020-11-10 15:06:09 | INFO | fairseq.tasks.translation | [zh] dictionary: 45280 types
+2020-11-10 15:06:09 | INFO | fairseq.tasks.translation | [en] dictionary: 45280 types
+2020-11-10 15:06:09 | INFO | fairseq_cli.interactive | loading model(s) from ../models/checkpoint_zh2en_CS.pt
+ * Serving Flask app "translation" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+2020-11-10 15:06:25 | INFO | werkzeug |  * Running on http://192.168.126.129:2019/ (Press CTRL+C to quit)
+2020-11-10 15:06:28 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:06:28] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"今天天气不错","prefix":""}
+None
+2020-11-10 15:06:29 WARNING add_node: `速食面` belongs to both `tra` and `sim`.
+2020-11-10 15:06:29 | WARNING | jionlp.util.logger | `速食面` belongs to both `tra` and `sim`.
+Processed text ['今天@@ 天气 不错']
+S-0	今天天气 不错
+W-0	0.431	seconds
+H-0	-0.721850574016571	It &apos;s a beautiful day .
+D-0	-0.721850574016571	It &apos;s a beautiful day .
+P-0	-1.8171 -0.3615 -0.5026 -1.1788 -0.1485 -0.8787 -0.1659
+['It &apos;s a beautiful day .']
+2020-11-10 15:06:29 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:06:29] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:06:43 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:06:43] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"今天weather不错","prefix":""}
+None
+Processed text ['今天 weather 不错']
+S-0	今天 weather 不错
+W-0	0.129	seconds
+H-0	-0.8879454731941223	Nice weather today .
+D-0	-0.8879454731941223	Nice weather today .
+P-0	-3.2841 -0.1246 -0.3553 -0.5083 -0.1673
+['Nice weather today .']
+2020-11-10 15:06:43 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:06:43] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:07:35 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:07:35] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我想吃狮子头","prefix":""}
+None
+Processed text ['我 想 吃 狮@@ 子@@ 头']
+S-0	我 想 吃 狮子头
+W-0	0.129	seconds
+H-0	-0.6808168888092041	I want a lion &apos;s head .
+D-0	-0.6808168888092041	I want a lion &apos;s head .
+P-0	-0.4798 -1.1996 -2.3078 -0.1397 -0.3577 -0.1000 -0.6902 -0.1717
+['I want a lion &apos;s head .']
+2020-11-10 15:07:35 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:07:35] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:07:51 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:07:51] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我想吃meat ball","prefix":""}
+None
+Processed text ['我 想 吃 meat ball']
+S-0	我 想 吃 meat ball
+W-0	0.124	seconds
+H-0	-0.6735831499099731	I want a meat ball .
+D-0	-0.6735831499099731	I want a meat ball .
+P-0	-0.3820 -1.2483 -1.3840 -0.0800 -0.0460 -1.3969 -0.1778
+['I want a meat ball .']
+2020-11-10 15:07:51 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:07:51] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:08:08 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:08] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢meat ball","prefix":""}
+None
+Processed text ['我 喜欢 meat ball']
+S-0	我 喜欢 meat ball
+W-0	0.130	seconds
+H-0	-0.4891235828399658	I like meat ball
+D-0	-0.4891235828399658	I like meat ball
+P-0	-0.3392 -1.0431 -0.1828 -0.0689 -0.8117
+['I like meat ball']
+2020-11-10 15:08:08 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:08] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:08:15 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:15] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢狮子头","prefix":""}
+None
+Processed text ['我 喜欢 狮@@ 子@@ 头']
+S-0	我 喜欢 狮子头
+W-0	0.112	seconds
+H-0	-0.6260145902633667	I like lion &apos;s head .
+D-0	-0.6260145902633667	I like lion &apos;s head .
+P-0	-0.4330 -1.0941 -0.5108 -0.8971 -0.6226 -0.6536 -0.1709
+['I like lion &apos;s head .']
+2020-11-10 15:08:15 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:15] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:08:25 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:25] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢吃狮子头","prefix":""}
+None
+Processed text ['我 喜欢 吃 狮@@ 子@@ 头']
+S-0	我 喜欢 吃 狮子头
+W-0	0.122	seconds
+H-0	-0.7133615612983704	I like lion &apos;s head .
+D-0	-0.7133615612983704	I like lion &apos;s head .
+P-0	-0.4563 -1.2452 -1.0145 -0.7648 -0.6145 -0.7219 -0.1763
+['I like lion &apos;s head .']
+2020-11-10 15:08:25 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:25] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:08:39 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:39] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢扬州狮子头","prefix":""}
+None
+Processed text ['我 喜欢 扬@@ 州 狮@@ 子@@ 头']
+S-0	我 喜欢 扬州 狮子头
+W-0	0.140	seconds
+H-0	-0.8157140612602234	I like the lion head in Yangzhou
+D-0	-0.8157140612602234	I like the lion head in Yangzhou
+P-0	-0.3382 -0.8632 -1.4398 -1.1609 -1.7173 -0.9367 -0.1992 -0.0767 -0.6094
+['I like the lion head in Yangzhou']
+2020-11-10 15:08:39 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:39] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:08:46 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:46] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢扬州名菜狮子头","prefix":""}
+None
+Processed text ['我 喜欢 扬@@ 州 名@@ 菜 狮@@ 子@@ 头']
+S-0	我 喜欢 扬州 名菜 狮子头
+W-0	0.197	seconds
+H-0	-0.7524775862693787	I like Yangzhou cuisine , lion &apos;s head .
+D-0	-0.7524775862693787	I like Yangzhou cuisine , lion &apos;s head .
+P-0	-0.4160 -0.8442 -2.0230 -0.0847 -1.4057 -0.0570 -0.0823 -1.6561 -0.7497 -0.8646 -0.1706 -1.2546 -0.1739
+['I like Yangzhou cuisine , lion &apos;s head .']
+2020-11-10 15:08:46 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:08:46] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:09:04 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:09:04] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢狮子头","prefix":""}
+None
+Processed text ['我 喜欢 狮@@ 子@@ 头']
+S-0	我 喜欢 狮子头
+W-0	0.111	seconds
+H-0	-0.6260145902633667	I like lion &apos;s head .
+D-0	-0.6260145902633667	I like lion &apos;s head .
+P-0	-0.4330 -1.0941 -0.5108 -0.8971 -0.6226 -0.6536 -0.1709
+['I like lion &apos;s head .']
+2020-11-10 15:09:05 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:09:05] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:09:08 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:09:08] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢狮子头","prefix":""}
+None
+Processed text ['我 喜欢 狮@@ 子@@ 头']
+S-0	我 喜欢 狮子头
+W-0	0.126	seconds
+H-0	-0.6260145902633667	I like lion &apos;s head .
+D-0	-0.6260145902633667	I like lion &apos;s head .
+P-0	-0.4330 -1.0941 -0.5108 -0.8971 -0.6226 -0.6536 -0.1709
+['I like lion &apos;s head .']
+2020-11-10 15:09:09 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:09:09] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:09:14 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:09:14] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢狮子头","prefix":"I like meat"}
+['I like meat']
+Processed text ['我 喜欢 狮@@ 子@@ 头']
+S-0	我 喜欢 狮子头
+W-0	0.105	seconds
+H-0	-3.3949897289276123	I like meat heads .
+D-0	-3.3949897289276123	I like meat heads .
+P-0	-0.4330 -1.0941 -16.1643 -1.9874 -0.5181 -0.1730
+['I like meat heads .']
+2020-11-10 15:09:14 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:09:14] "POST /zh2en/ HTTP/1.0" 200 -
+2020-11-10 15:09:16 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:09:16] "POST /zh2en HTTP/1.0" 308 -
+Original  text :  {"str":"我喜欢狮子头","prefix":""}
+None
+Processed text ['我 喜欢 狮@@ 子@@ 头']
+S-0	我 喜欢 狮子头
+W-0	0.108	seconds
+H-0	-0.6260145902633667	I like lion &apos;s head .
+D-0	-0.6260145902633667	I like lion &apos;s head .
+P-0	-0.4330 -1.0941 -0.5108 -0.8971 -0.6226 -0.6536 -0.1709
+['I like lion &apos;s head .']
+2020-11-10 15:09:16 | INFO | werkzeug | 192.168.126.129 - - [10/Nov/2020 15:09:16] "POST /zh2en/ HTTP/1.0" 200 -

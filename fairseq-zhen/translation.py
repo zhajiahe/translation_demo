@@ -188,7 +188,15 @@ def main(args):
 
     if args.constraints:
         logger.warning("NOTE: Constrained decoding currently assumes a shared subword vocabulary.")
-
+    
+    user_dict = {}
+    @app.route('/getdict/', methods = ['POST'])
+    def getdata():
+        if request.method == 'POST':
+            inputs = request.get_data().decode('utf-8')
+            key = json.loads(inputs)['key']
+            value = json.loads(inputs)['value']
+            user_dict[key] = value
 
     @app.route('/zh2en/', methods = ['POST'])
     def translate():
