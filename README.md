@@ -15,5 +15,10 @@ This is a simple online translation system, which is build on fairseq(0.9.0).
 ```
 cd fairseq-zhen
 nohup bash mt_eval.sh > log.online.zh2en 2>&1 &
-curl ..
+curl -d '{
+	"str": query,
+	"prefix" : prefix.
+	"key" : user_key,
+	"value" : user_value
+}' http:/address
 ```
